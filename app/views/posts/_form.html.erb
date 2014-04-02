@@ -1,0 +1,33 @@
+<p>
+<%= form_for @post , :html => { :multipart => true } do |f|%>
+<%if @post.errors.any?%>
+<h2>Errors:</h2>
+<ul>
+	<%@post.errors.full_messages.each do |message|%>
+	<li><%= message%></li>
+	<%end%>
+	</ul>
+<%end%>
+<div class="row">
+	<div class="small-3 columns"><%= f.label :title %></div>
+<div class="small-9 columns"><%= f.text_field :title%></div>
+</div>
+
+<div class="row">
+<div class="small-3 columns"><%= f.label :tag_list,"Tags" ,title:"Seperated by comma",data:{tooltip:true}%></div>
+<div class="small-9 columns"><%= f.text_field :tag_list%></div>
+</div>
+
+<div class="row">
+<div class="small-3 columns"><%= f.label :post %></div>
+<div class="small-9 columns"><%= f.text_area :text%></div>
+</div>
+
+<div class="row">
+<div class="small-3 columns"><%= f.label :image %></div>
+<div class="small-9 columns"><%= f.file_field :image %></div>
+</div>
+<div class="row">
+<div class="small-3 small-offset-3 columns"><%= f.submit %></div>
+</div>
+<%end%>

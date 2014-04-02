@@ -1,0 +1,24 @@
+<p>
+  <strong>Title:</strong>
+  <h1><%= @post.title %></h1>
+</p>
+ 
+<%= image_tag @post.image.url %>
+<br />
+<p>
+  <strong>Post:</strong>
+  <h3><%= @post.text %></h3>
+</p>
+<p>
+  <strong>Tags:</strong>
+  <h3><%= @post.tag_list %></h3>
+</p>
+
+<small><%= @post.created_at %></small> 
+<h2>Comments</h2>
+<%= render @post.comments %>
+ 
+<h3>Add a comment:</h3>
+<%= render "comments/form"%> 
+<%= link_to 'Edit Post', edit_post_path(@post) %> |
+<%= link_to 'Back to Posts', posts_path %>
